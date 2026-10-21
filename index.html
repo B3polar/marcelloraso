@@ -402,9 +402,11 @@ img{max-width:100%}
 <section id="contact"><div class="inner">
   <div class="head"><div class="num">VI</div><h2>Get in Touch</h2><div class="mono">Collaborations, screenings, press</div></div>
   <div class="contact">
-    <form id="cform" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
-      <input type="hidden" name="form-name" value="contact">
-      <p hidden><label>Leave empty <input name="bot-field"></label></p>
+    <form id="cform" name="contact" method="POST" action="https://formsubmit.co/kharmamovie@gmail.com" novalidate>
+      <input type="hidden" name="_subject" value="New message from marcelloraso site">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <p hidden><label>Leave empty <input name="_honey"></label></p>
       <div class="field"><label for="c-topic">Topic</label>
         <select id="c-topic" name="topic">
           <option>Collaboration / co-production</option>
@@ -472,8 +474,8 @@ img{max-width:100%}
     var topic=$('c-topic').value, role=$('c-role').value.trim();
     body='Name: '+name+'\nEmail: '+email+(role?'\nRole: '+role:'')+'\nTopic: '+topic+'\n\n'+msg;
     var btn=f.querySelector('button[type=submit]'); btn.disabled=true; btn.textContent='Sending…';
-    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()})
-      .then(function(r){ if(!r.ok) throw 0; f.querySelectorAll('.field,.row,button[type=submit]').forEach(function(el){el.hidden=true}); $('c-ok').hidden=false; })
+    fetch('https://formsubmit.co/ajax/kharmamovie@gmail.com',{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)})
+      .then(function(r){ if(!r.ok) throw 0; return r.json(); }).then(function(d){ if(!d || String(d.success)!=='true') throw 0; f.querySelectorAll('.field,.row,button[type=submit]').forEach(function(el){el.hidden=true}); $('c-ok').hidden=false; })
       .catch(function(){ $('c-sent').hidden=false; btn.disabled=false; btn.textContent='Send message →'; });
   });
   $('c-copy').addEventListener('click',function(){copy('To: '+TO+'\n'+body,this,$('c-copied'))});
