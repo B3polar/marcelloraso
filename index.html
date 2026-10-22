@@ -287,6 +287,38 @@ input,select,textarea{background:rgba(11,13,16,.6)}
 .fest strong{color:var(--fg)}
 .fest .where{color:color-mix(in srgb,var(--amber) 80%,var(--fg))}
 .screened{color:color-mix(in srgb,var(--reel,var(--amber)) 50%,var(--fg))}
+/* breakdown */
+.breakdown{margin-top:56px;display:grid;gap:22px}
+.bd-head h3{font-size:clamp(32px,4.5vw,48px);font-weight:800;margin-top:6px}
+.bd-head p{margin:8px 0 0;max-width:62ch}
+.bd-head .mono{color:color-mix(in srgb,var(--sec,var(--accent)) 70%,var(--fg))}
+.compare{position:relative;aspect-ratio:16/9;max-width:100%;overflow:hidden;background:#000;border:1px solid color-mix(in srgb,var(--sec,var(--accent)) 50%,transparent);user-select:none;touch-action:pan-y}
+.cmp-v{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.cmp-top{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--x)) 0 0)}
+.cmp-line{position:absolute;top:0;bottom:0;left:var(--x);width:2px;margin-left:-1px;background:var(--fg);pointer-events:none}
+.cmp-line span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:40px;border-radius:50%;background:var(--fg);color:#14100a;display:grid;place-items:center;font-size:18px;font-weight:700}
+.cmp-tag{position:absolute;top:14px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;background:rgba(11,13,16,.7);padding:6px 10px;color:var(--fg);pointer-events:none}
+.cmp-tag.l{left:14px}.cmp-tag.r{right:14px}
+.cmp-range{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize}
+.cmp-range:focus-visible+*,.compare:focus-within{outline:2px solid var(--accent);outline-offset:3px}
+.bd-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+@media (max-width:1000px){.bd-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.bd-steps{grid-template-columns:1fr}}
+.bd-steps li{background:rgba(11,13,16,.45);padding:10px 10px 14px;display:grid;gap:8px;align-content:start}
+.bd-media{aspect-ratio:16/9;overflow:hidden;background:#000}
+.bd-media video,.bd-media img{width:100%;height:100%;object-fit:cover;display:block}
+.bd-steps .mono{color:var(--sec,var(--accent))}
+.bd-steps p{margin:0;font-size:14px;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.bd-steps video{display:none}.bd-media{background:center/cover no-repeat}}
+.bd-refs{display:grid;gap:12px}
+.bd-refs>.mono{color:var(--sec,var(--accent))}
+.bd-refs-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:700px){.bd-refs-grid{grid-template-columns:1fr}}
+.bd-refs figure{margin:0;background:rgba(11,13,16,.45);padding:10px;display:grid;gap:10px}
+.bd-refs img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.bd-refs a:hover img{filter:brightness(1.08)}
+.bd-refs figcaption{font-size:14px;color:var(--muted)}
+.bd-refs figcaption b{display:block;font-family:var(--display);font-weight:600;font-size:22px;text-transform:uppercase;color:var(--fg);line-height:1.1;margin-bottom:2px}
 </style>
 <style>
 *,*::before,*::after{box-sizing:border-box}
@@ -456,6 +488,35 @@ img{max-width:100%}
     <li><span class="mono">04 · Build</span><b>AI</b><p class="craft"><em>Direction</em>Worlds, characters and light are generated on top of the directed take, shot by shot.</p><p class="tool"><em>Tools</em>Seedance 2, Kling, Runway, Hailuo, Midjourney, Nano Banana Pro</p></li>
     <li><span class="mono">05 · Finish</span><b>Cut &amp; Score</b><p class="craft"><em>Direction</em>Edit, continuity, sound design, mix and original music.</p><p class="tool"><em>Tools</em>DaVinci Resolve · original score</p></li>
   </ol>
+  <div class="breakdown" id="breakdown">
+    <div class="bd-head">
+      <span class="mono">Breakdown · The Elizabethan scene</span>
+      <h3>From take to final frame</h3>
+      <p>One shot, start to finish. Drag the line to compare the take recorded on set with the finished frame.</p>
+    </div>
+    <div class="compare" id="cmp" style="--x:50%">
+      <video class="cmp-v cmp-base" src="vid/final.mp4" poster="vid/final.jpg" muted loop playsinline autoplay preload="auto"></video>
+      <div class="cmp-top"><video class="cmp-v" src="vid/take.mp4" poster="vid/take.jpg" muted loop playsinline autoplay preload="auto"></video></div>
+      <div class="cmp-line" aria-hidden="true"><span>⟷</span></div>
+      <span class="cmp-tag l">On set</span><span class="cmp-tag r">Final</span>
+      <input class="cmp-range" id="cmp-range" type="range" min="0" max="100" value="50" aria-label="Compare the on-set take with the final frame">
+    </div>
+    <ol class="bd-steps">
+      <li><div class="bd-media"><video src="vid/take.mp4" poster="vid/take.jpg" muted loop playsinline autoplay preload="metadata"></video></div><span class="mono">01 · Take</span><p>The actress is directed and recorded on a bare set: marks, a chair, a glass.</p></li>
+      <li><div class="bd-media"><video src="vid/depth.mp4" poster="vid/depth.jpg" muted loop playsinline autoplay preload="metadata"></video></div><span class="mono">02 · Depth</span><p>A depth map locks her performance, the framing and the space around her.</p></li>
+      <li><div class="bd-media"><img src="img/wardrobe.webp" alt="Costume reference: herringbone tweed jacket, forest wool skirt, velvet trim, front, side and back views" loading="lazy"></div><span class="mono">03 · Wardrobe</span><p>The costume is designed as a reference: herringbone tweed, forest wool, velvet.</p></li>
+      <li><div class="bd-media"><img src="img/firstframe.webp" alt="First-frame reference: the actress seated in a Victorian study with books, portraits and a teacup" loading="lazy"></div><span class="mono">04 · First frame</span><p>The look of the scene is set in one frame: the room, the light, the props.</p></li>
+      <li><div class="bd-media"><video src="vid/final.mp4" poster="vid/final.jpg" muted loop playsinline autoplay preload="metadata"></video></div><span class="mono">05 · Final</span><p>AI rebuilds the world around the directed performance. The glass becomes a teacup.</p></li>
+    </ol>
+    <div class="bd-refs">
+      <span class="mono">References used</span>
+      <div class="bd-refs-grid">
+        <figure><a href="img/firstframe.webp" target="_blank" rel="noopener"><img src="img/firstframe.webp" alt="Starting frame reference: the actress seated in a Victorian study with books, portraits and a teacup" loading="lazy"></a><figcaption><b>Starting frame</b>Sets the room, the light and the props for the whole shot.</figcaption></figure>
+        <figure><a href="img/wardrobe.webp" target="_blank" rel="noopener"><img src="img/wardrobe.webp" alt="Costume reference: herringbone tweed jacket, forest wool skirt and velvet trim, front, side and back views" loading="lazy"></a><figcaption><b>Costume</b>Herringbone tweed, forest wool and velvet, shown front, side and back.</figcaption></figure>
+      </div>
+    </div>
+  </div>
+
 </div></section>
 
 <section id="festivals"><div class="inner">
@@ -578,6 +639,16 @@ document.querySelectorAll('.screen[data-yt]').forEach(function(a){
     a.replaceWith(box);
   });
 });
+// breakdown compare slider
+(function(){
+  var c=document.getElementById('cmp'); if(!c) return;
+  var r=document.getElementById('cmp-range'), base=c.querySelector('.cmp-base'), top=c.querySelector('.cmp-top video');
+  r.addEventListener('input',function(){c.style.setProperty('--x',r.value+'%')});
+  function sync(){ if(Math.abs(top.currentTime-base.currentTime)>0.08){ try{top.currentTime=base.currentTime}catch(e){} } }
+  base.addEventListener('timeupdate',sync);
+  base.addEventListener('play',function(){ top.play().catch(function(){}) });
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){ [base,top].forEach(function(v){v.removeAttribute('autoplay');v.pause()}); document.querySelectorAll('.bd-steps video').forEach(function(v){v.pause()}); }
+})();
 // running timecode
 (function(){
   var el=document.getElementById('tc'); if(!el) return;
