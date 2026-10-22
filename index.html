@@ -211,6 +211,74 @@ footer{padding-block:28px;color:var(--muted);font-size:14px}
 .portrait{margin:0;display:grid;gap:8px;justify-self:end;align-self:end;width:100%}
 .portrait img{width:100%;height:auto;max-width:100%;aspect-ratio:4/5;object-fit:cover;border:1px solid rgba(235,229,218,.35);box-shadow:0 0 0 6px rgba(11,13,16,.55)}
 @media (max-width:760px){.vf{grid-template-columns:1fr}.portrait{order:-1;justify-self:start;width:100px}.portrait figcaption{display:none}}
+/* color study: one warm-to-cool scale, a tone per section */
+:root{--amber:#e8a33d;--copper:#d0703f;--rust:#b9503f;--teal:#6fa8a2;--gold:#d8b45e;--rose:#c58a86}
+.hero::after{background:
+  radial-gradient(110% 85% at 88% 18%,rgba(185,80,63,.30),transparent 60%),
+  radial-gradient(80% 70% at 6% 92%,rgba(111,168,162,.16),transparent 62%),
+  linear-gradient(180deg,rgba(11,13,16,.12) 0%,rgba(11,13,16,.38) 55%,var(--bg) 100%)}
+.vf-text>.mono{color:var(--amber)}
+.hero h1 span{background:linear-gradient(90deg,var(--amber) 0%,var(--copper) 55%,var(--rust) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .role{color:var(--teal)}
+.portrait img{border:2px solid var(--amber);box-shadow:10px 10px 0 0 var(--rust)}
+.portrait figcaption{color:var(--amber)}
+.btn.primary{background:linear-gradient(90deg,var(--amber),var(--copper));border-color:transparent}
+.stat{border-top:2px solid var(--s,var(--amber))}
+.stat:nth-child(1){--s:var(--amber)}.stat:nth-child(2){--s:var(--copper)}.stat:nth-child(3){--s:var(--teal)}.stat:nth-child(4){--s:var(--gold)}
+.stat b{color:var(--s)}
+section{--sec:var(--amber);background:linear-gradient(180deg,color-mix(in srgb,var(--sec) 8%,var(--bg)) 0%,var(--bg) 340px)}
+#approach{--sec:var(--teal)}#method{--sec:var(--copper)}#festivals{--sec:var(--gold)}#about{--sec:var(--rose)}#contact{--sec:var(--amber)}
+.num{color:var(--sec)}
+.head{padding-bottom:22px;border-bottom:1px solid color-mix(in srgb,var(--sec) 45%,transparent)}
+.head .mono{color:color-mix(in srgb,var(--sec) 75%,var(--muted))}
+blockquote{border-left-color:var(--sec)}
+.pillars div:nth-child(1){border-top:2px solid var(--amber)}.pillars div:nth-child(2){border-top:2px solid var(--teal)}.pillars div:nth-child(3){border-top:2px solid var(--rose)}
+.steps em{color:var(--sec)}
+.steps li:nth-child(1) b{color:var(--amber)}.steps li:nth-child(2) b{color:var(--gold)}.steps li:nth-child(3) b{color:var(--teal)}.steps li:nth-child(4) b{color:var(--copper)}.steps li:nth-child(5) b{color:var(--rose)}
+.fest .t.win{color:var(--gold)}
+.partners span{border-color:color-mix(in srgb,var(--sec) 40%,var(--line))}
+input:focus,select:focus,textarea:focus{border-color:var(--sec)}
+.direct{border-color:color-mix(in srgb,var(--sec) 45%,var(--line))}
+.links a:hover{border-color:var(--sec)}
+
+/* ticker band */
+.ticker{overflow:hidden;background:linear-gradient(90deg,var(--amber),var(--copper) 55%,var(--rust));color:#160d08;border-block:1px solid rgba(0,0,0,.25)}
+.ticker-track{display:flex;width:max-content;animation:tick 48s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker-run{display:flex;align-items:center;gap:22px;padding:14px 11px;white-space:nowrap}
+.ticker span{font-family:var(--display);font-weight:600;font-size:20px;letter-spacing:.06em;text-transform:uppercase}
+.ticker i{font-style:normal;opacity:.6}
+@keyframes tick{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ticker-track{animation:none;width:auto}.ticker-run{white-space:normal;flex-wrap:wrap}.ticker-run[aria-hidden]{display:none}}
+
+/* colored section bands (films stay on dark; titles keep their color) */
+.reel-head h3{color:var(--reel)}
+#approach,#method,#festivals,#about,#contact{
+  background:linear-gradient(170deg,color-mix(in srgb,var(--sec) 24%,var(--bg)) 0%,color-mix(in srgb,var(--sec) 13%,var(--bg)) 100%);
+  border-top:1px solid color-mix(in srgb,var(--sec) 55%,transparent);border-bottom:0}
+#approach .head,#method .head,#festivals .head,#about .head,#contact .head{border-bottom-color:color-mix(in srgb,var(--sec) 60%,transparent)}
+#approach .head .mono,#method .head .mono,#festivals .head .mono,#about .head .mono,#contact .head .mono{color:color-mix(in srgb,var(--sec) 55%,var(--fg))}
+/* cards sit darker on the band */
+blockquote{background:rgba(11,13,16,.35);padding:24px 24px 20px 28px}
+.pillars{background:transparent;border:0;gap:10px}
+.pillars div{background:rgba(11,13,16,.45)}
+.pillars div:nth-child(1) b{color:var(--amber)}.pillars div:nth-child(2) b{color:var(--teal)}.pillars div:nth-child(3) b{color:var(--rose)}
+.steps{background:transparent;border:0;gap:10px}
+.steps li{background:rgba(11,13,16,.45);border-top:2px solid var(--sec)}
+.fest{border-top:0;display:grid;gap:8px}
+.fest li{background:rgba(11,13,16,.42);border:0;padding:18px 20px}
+.fest li:has(.t.win){background:rgba(11,13,16,.55);border-left:3px solid var(--gold)}
+#about .about>div:first-child{background:rgba(11,13,16,.38);border-left:3px solid var(--rose);padding:24px}
+.partners span{background:rgba(11,13,16,.4)}
+#contact form{background:rgba(11,13,16,.42);padding:24px}
+.direct{background:rgba(11,13,16,.55);border-color:color-mix(in srgb,var(--sec) 50%,transparent)}
+input,select,textarea{background:rgba(11,13,16,.6)}
+.links a{background:rgba(11,13,16,.42);border-color:color-mix(in srgb,var(--sec) 30%,transparent)}
+.desc{display:grid;gap:14px}
+.screened{font-size:14px;color:var(--muted);line-height:1.7;margin:0}
+.screened em{display:block;font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--reel,var(--accent));margin-bottom:2px}
+.reel-head{grid-template-columns:auto minmax(0,1fr)}
+.reel-head .tags{grid-column:1/-1;justify-content:flex-start}
 </style>
 <style>
 *,*::before,*::after{box-sizing:border-box}
@@ -272,6 +340,10 @@ img{max-width:100%}
   </div>
 </div>
 
+<div class="ticker" role="marquee" aria-label="Recognition">
+  <div class="ticker-track"><div class="ticker-run"><span>Award Winner · Jeju AI International Film Festival · Korea</span><i>✦</i><span>Honorable Mention · Tokyo Film &amp; Screenplay Awards</span><i>✦</i><span>Official Selection · AIFILM3 · Arizona, USA</span><i>✦</i><span>Official Selection · Aphrodite Film Awards · New York</span><i>✦</i><span>100M+ combined views · Predator Origins</span><i>✦</i><span>KHARMA · WGA Registered IP</span><i>✦</i><span>Official Creative Partner · Seedance · Runway · Hailuo · CapCut</span><i>✦</i></div><div class="ticker-run" aria-hidden="true"><span>Award Winner · Jeju AI International Film Festival · Korea</span><i>✦</i><span>Honorable Mention · Tokyo Film &amp; Screenplay Awards</span><i>✦</i><span>Official Selection · AIFILM3 · Arizona, USA</span><i>✦</i><span>Official Selection · Aphrodite Film Awards · New York</span><i>✦</i><span>100M+ combined views · Predator Origins</span><i>✦</i><span>KHARMA · WGA Registered IP</span><i>✦</i><span>Official Creative Partner · Seedance · Runway · Hailuo · CapCut</span><i>✦</i></div></div>
+</div>
+
 <section id="work"><div class="inner">
   <div class="head"><div class="num">I</div><h2>The Work</h2><div class="mono">Films &amp; series</div></div>
 
@@ -279,7 +351,7 @@ img{max-width:100%}
     <header class="reel-head">
       <span class="idx">01</span>
       <div><h3>KHARMA</h3><div class="mono">Sci-fi · Short film · 2026 · English</div></div>
-      <div class="tags"><span class="hi">Award Winner · Jeju</span><span class="hi">Hon. Mention · Tokyo</span><span>WGA Registered IP</span></div>
+      <div class="tags"><span class="hi">Award Winner · Jeju AI International Film Festival</span><span class="hi">Honorable Mention · Tokyo Film &amp; Screenplay Awards</span><span>WGA Registered</span></div>
     </header>
     <a class="screen" href="https://shaike.ai/a-galaxy-on-the-brink-of-interstellar-war-kharma-sci-fi-ep-1/" target="_blank" rel="noopener">
       <img src="img/poster.webp" alt="KHARMA poster with festival laurels">
@@ -288,7 +360,10 @@ img{max-width:100%}
     </a>
     <div class="info">
       <div class="credits mono"><span>Writer · Director</span><span>Producer · Composer</span></div>
-      <p>The opening chapter of an original sci-fi universe: morally grey characters, political conflict on a galactic scale, and a world with its own cults, hunters and history.</p>
+      <div class="desc">
+        <p>The opening chapter of an original sci-fi universe: morally grey characters, political conflict on a galactic scale, and a world with its own cults, hunters and history.</p>
+        <p class="screened"><em>Theatrical screenings</em>Jeju Arts Center · Jeju, South Korea · Jeju AI International Film Festival<br>Pollack Tempe Cinemas · Tempe, Arizona, USA · AIFILM3</p>
+      </div>
     </div>
     <div class="strip">
       <img src="img/ship.webp" alt="KHARMA still: a ship below a cliffside palace" loading="lazy">
@@ -298,7 +373,7 @@ img{max-width:100%}
     </div>
   </article>
 
-  <article class="reel" style="--reel:#d6453b">
+  <article class="reel" style="--reel:#c4553f">
     <header class="reel-head">
       <span class="idx">02</span>
       <div><h3>The Mirror Door</h3><div class="mono">Horror · Short film · 2026</div></div>
@@ -322,7 +397,7 @@ img{max-width:100%}
     </div>
   </article>
 
-  <article class="reel" style="--reel:#6fae6a">
+  <article class="reel" style="--reel:#7da387">
     <header class="reel-head">
       <span class="idx">03</span>
       <div><h3>Predator Origins</h3><div class="mono">Action · Fan series · 2025–2026</div></div>
