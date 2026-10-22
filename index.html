@@ -279,6 +279,15 @@ input,select,textarea{background:rgba(11,13,16,.6)}
 .screened em{display:block;font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--reel,var(--accent));margin-bottom:2px}
 .reel-head{grid-template-columns:auto minmax(0,1fr)}
 .reel-head .tags{grid-column:1/-1;justify-content:flex-start}
+/* festival rows: no grey labels */
+.fest .t{color:var(--teal);font-weight:500}
+.fest .t.win{color:var(--gold)}
+.fest li{border-left:3px solid var(--teal)}
+.fest li:has(.t.win){border-left-color:var(--gold)}
+.fest strong{color:var(--fg)}
+.fest li span{color:color-mix(in srgb,var(--gold) 45%,var(--fg))}
+.fest .where{color:color-mix(in srgb,var(--amber) 80%,var(--fg))}
+.screened{color:color-mix(in srgb,var(--reel,var(--amber)) 50%,var(--fg))}
 </style>
 <style>
 *,*::before,*::after{box-sizing:border-box}
