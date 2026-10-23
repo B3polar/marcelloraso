@@ -332,6 +332,7 @@ input,select,textarea{background:rgba(11,13,16,.6)}
 .onset figcaption{font-size:15px;color:color-mix(in srgb,var(--fg) 80%,var(--sec,var(--accent)));max-width:70ch}
 .onset figcaption .mono{display:block;color:var(--sec,var(--accent));margin-bottom:4px}
 .privacy-note{margin:0;font-size:13px;color:var(--muted)}
+.cmp-hint{position:absolute;left:var(--x);bottom:16px;transform:translateX(-50%);font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;background:var(--fg);color:#14100a;padding:6px 10px;pointer-events:none;white-space:nowrap}
 </style>
 <style>
 *,*::before,*::after{box-sizing:border-box}
@@ -503,6 +504,7 @@ img{max-width:100%}
       <video class="cmp-v cmp-base" src="vid/final.mp4" poster="vid/final.jpg" muted loop playsinline autoplay preload="auto"></video>
       <div class="cmp-top"><video class="cmp-v" src="vid/take.mp4" poster="vid/take.jpg" muted loop playsinline autoplay preload="auto"></video></div>
       <div class="cmp-line" aria-hidden="true"><span>⟷</span></div>
+      <span class="cmp-hint" aria-hidden="true">◂ Drag ▸</span>
       <span class="cmp-tag l">On set</span><span class="cmp-tag r">Final</span>
       <input class="cmp-range" id="cmp-range" type="range" min="0" max="100" value="50" aria-label="Compare the on-set take with the final frame">
     </div>
@@ -666,6 +668,21 @@ document.querySelectorAll('.screen[data-yt]').forEach(function(a){
   base.addEventListener('timeupdate',sync);
   base.addEventListener('play',function(){ top.play().catch(function(){}) });
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){ [base,top].forEach(function(v){v.removeAttribute('autoplay');v.pause()}); document.querySelectorAll('.bd-steps video').forEach(function(v){v.pause()}); }
+})();
+// breakdown: show that the line can be dragged
+(function(){
+  var c=document.getElementById('cmp'), r=document.getElementById('cmp-range'); if(!c||!r||!('IntersectionObserver' in window)) return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var touched=false; r.addEventListener('pointerdown',function(){touched=true}); r.addEventListener('keydown',function(){touched=true});
+  var io=new IntersectionObserver(function(es){
+    if(!es[0].isIntersecting) return; io.disconnect();
+    var keys=[50,32,68,50], i=0, t0=null, seg=650;
+    function step(ts){ if(touched) return; if(!t0) t0=ts; var k=Math.min(1,(ts-t0)/seg), e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;
+      var v=keys[i]+(keys[i+1]-keys[i])*e; c.style.setProperty('--x',v+'%'); r.value=v;
+      if(k<1) requestAnimationFrame(step); else if(++i<keys.length-1){t0=null;requestAnimationFrame(step)} }
+    setTimeout(function(){requestAnimationFrame(step)},500);
+  },{threshold:.6});
+  io.observe(c);
 })();
 // running timecode
 (function(){
