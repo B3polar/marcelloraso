@@ -569,7 +569,7 @@ img{max-width:100%}
 <section id="contact"><div class="inner">
   <div class="head"><div class="num">VI</div><h2>Get in Touch</h2><div class="mono">Collaborations, screenings, press</div></div>
   <div class="contact">
-    <form id="cform" name="contact" method="POST" action="https://formsubmit.co/kharmamovie@gmail.com" novalidate>
+    <form id="cform" name="contact" method="POST" action="https://formsubmit.co/hello@rasostudios.com" novalidate>
       <input type="hidden" name="_subject" value="New message from marcelloraso site">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
@@ -601,7 +601,7 @@ img{max-width:100%}
     </form>
     <aside class="direct">
       <div class="mono">Email</div>
-      <div class="mail" id="mail">kharmamovie@gmail.com</div>
+      <div class="mail" id="mail">hello@rasostudios.com</div>
       <button class="btn" type="button" id="mail-copy">Copy address</button>
       <span class="mono" id="mail-copied" aria-live="polite"></span>
       <p>Open to co-productions, screenplay development and brand collaborations.</p>
@@ -624,7 +624,7 @@ img{max-width:100%}
 <script>
 // contact form: compose an email to the studio
 (function(){
-  var TO='kharmamovie@gmail.com';
+  var TO='hello@rasostudios.com';
   var f=document.getElementById('cform'); if(!f) return;
   var $=function(id){return document.getElementById(id)};
   var body='';
@@ -642,7 +642,7 @@ img{max-width:100%}
     var topic=$('c-topic').value, role=$('c-role').value.trim();
     body='Name: '+name+'\nEmail: '+email+(role?'\nRole: '+role:'')+'\nTopic: '+topic+'\n\n'+msg;
     var btn=f.querySelector('button[type=submit]'); btn.disabled=true; btn.textContent='Sending…';
-    fetch('https://formsubmit.co/ajax/kharmamovie@gmail.com',{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)})
+    fetch('https://formsubmit.co/ajax/hello@rasostudios.com',{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)})
       .then(function(r){ if(!r.ok) throw 0; return r.json(); }).then(function(d){ if(!d || String(d.success)!=='true') throw 0; f.querySelectorAll('.field,.row,button[type=submit]').forEach(function(el){el.hidden=true}); $('c-ok').hidden=false; })
       .catch(function(){ $('c-sent').hidden=false; btn.disabled=false; btn.textContent='Send message →'; });
   });
