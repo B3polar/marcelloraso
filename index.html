@@ -643,8 +643,10 @@ img{max-width:100%}
     body='Name: '+name+'\nEmail: '+email+(role?'\nRole: '+role:'')+'\nTopic: '+topic+'\n\n'+msg;
     var btn=f.querySelector('button[type=submit]'); btn.disabled=true; btn.textContent='Sending…';
     fetch('https://formsubmit.co/ajax/hello@rasostudios.com',{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)})
-      .then(function(r){ if(!r.ok) throw 0; return r.json(); }).then(function(d){ if(!d || String(d.success)!=='true') throw 0; f.querySelectorAll('.field,.row,button[type=submit]').forEach(function(el){el.hidden=true}); $('c-ok').hidden=false; })
-      .catch(function(){ $('c-sent').hidden=false; btn.disabled=false; btn.textContent='Send message →'; });
+      .then(function(r){ return r.json().catch(function(){return {}}); }).then(function(d){ if(!d || String(d.success)!=='true') throw d; f.querySelectorAll('.field,.row,button[type=submit]').forEach(function(el){el.hidden=true}); $('c-ok').hidden=false; })
+      .catch(function(e){ var m=(e&&e.message)||''; var p=$('c-sent').querySelector('p');
+        if(/activat/i.test(m)){ p.textContent='This form is being activated. Please try again in a few minutes, or write directly to the address on the right.'; }
+        $('c-sent').hidden=false; btn.disabled=false; btn.textContent='Send message →'; });
   });
   $('c-copy').addEventListener('click',function(){copy('To: '+TO+'\n'+body,this,$('c-copied'))});
   $('mail-copy').addEventListener('click',function(){copy(TO,this,$('mail-copied'))});
