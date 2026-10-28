@@ -406,7 +406,7 @@ img{max-width:100%}
 </div>
 
 <section id="work"><div class="inner">
-  <div class="head"><div class="num">I</div><h2>The Work</h2><div class="mono">Films &amp; series</div></div>
+  <div class="head"><div class="num">I</div><h2>The Work</h2><div class="mono">Films, series &amp; commercials</div></div>
 
   <article class="reel" style="--reel:#e8a33d">
     <header class="reel-head">
@@ -480,6 +480,30 @@ img{max-width:100%}
       <img src="img/p9.webp" alt="A wrist gauntlet with blades" loading="lazy">
     </div>
   </article>
+
+  <article class="reel" style="--reel:#6fa8a2">
+    <header class="reel-head">
+       <span class="idx">04</span>
+       <div><h3>Bookgram</h3><div class="mono">Comedy · Commercial · 2026</div></div>
+       <div class="tags"><span class="hi">Advertising</span><span>Concept spot</span></div>
+     </header>
+     <a class="screen" data-mp4="vid/bookgram.mp4" data-title="Bookgram" href="vid/bookgram.mp4">
+       <img src="img/bg0.webp" alt="Bookgram commercial still: school staff staring at the principal's desk" loading="lazy">
+       <span class="tc">0:45</span>
+       <span class="play"><i></i>Play Bookgram</span>
+     </a>
+     <div class="info">
+       <div class="credits mono"><span>Writer · Director</span></div>
+       <p>A comedy spot for an invented social app: one office in chaos, one blue check. The same direction, applied to advertising.</p>
+     </div>
+     <div class="strip">
+       <img src="img/bg1.webp" alt="Staff crowding the principal's desk" loading="lazy">
+       <img src="img/bg2.webp" alt="The principal at his desk" loading="lazy">
+       <img src="img/bg3.webp" alt="A teacher leaning in toward the desk" loading="lazy">
+       <img src="img/bg5.webp" alt="The principal speaking to camera" loading="lazy">
+       <img src="img/bg6.webp" alt="Bookgram logo: get your blue check today" loading="lazy">
+     </div>
+   </article>
 </div></section>
 
 <section id="approach"><div class="inner">
@@ -651,6 +675,17 @@ img{max-width:100%}
   $('mail-copy').addEventListener('click',function(){copy(TO,this,$('mail-copied'))});
 })();
 // YouTube: play inside the page
+document.querySelectorAll('.screen[data-mp4]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    e.preventDefault();
+    var v=document.createElement('video');
+    v.src=a.dataset.mp4; v.controls=true; v.autoplay=true; v.playsInline=true;
+    v.setAttribute('aria-label',a.dataset.title||'Video');
+    v.style.cssText='width:100%;height:100%;display:block;background:#000';
+    var box=document.createElement('div'); box.className='screen'; box.appendChild(v);
+    a.replaceWith(box);
+  });
+});
 document.querySelectorAll('.screen[data-yt]').forEach(function(a){
   a.addEventListener('click',function(e){
     e.preventDefault();
