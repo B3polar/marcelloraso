@@ -47,6 +47,7 @@
 @media (max-width:700px){.press-card{grid-template-columns:1fr}.pc-logo{border-right:0;border-bottom:1px solid color-mix(in srgb,var(--teal) 25%,var(--line))}.pc-logo img{min-height:0;height:auto;aspect-ratio:4/3}.pc-body{padding:20px}}
 .hm-laurel{display:block;width:100%;max-width:300px;height:auto;margin:18px 0 6px}
 .info-left{display:grid;gap:18px;align-content:start}.info-left .credits{margin:0}.side-img{display:block;width:100%;height:auto;border:1px solid var(--line)}
+@media (max-width:560px){.laurels .lau:last-child:nth-child(odd){grid-column:1/-1;width:50%;justify-self:center}}
 </style>
 <style>
 /* Layout: camera viewfinder hero → stats + laurels → numbered reels (I–V) like a press kit. Single dark look by choice. */
@@ -357,8 +358,8 @@ input,select,textarea{background:rgba(11,13,16,.6)}
 .privacy-note{margin:0;font-size:13px;color:var(--muted)}
 .cmp-hint{position:absolute;left:var(--x);bottom:16px;transform:translateX(-50%);font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;background:var(--fg);color:#14100a;padding:6px 10px;pointer-events:none;white-space:nowrap}
 .cert{display:block;width:180px;max-width:100%;height:auto;margin-top:12px;opacity:.92}
-.laurels{grid-template-columns:repeat(6,minmax(0,1fr))}
-@media (max-width:1000px){.laurels{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.laurels{grid-template-columns:repeat(7,minmax(0,1fr))}
+@media (max-width:1000px){.laurels{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media (max-width:560px){.laurels{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 <style>
@@ -412,7 +413,7 @@ img{max-width:100%}
     <div class="stat"><b>100M+</b><span class="mono">Combined views</span></div>
     <div class="stat"><b>180K+</b><span class="mono">TikTok followers</span></div>
     <div class="stat"><b>50K+</b><span class="mono">YouTube subscribers</span></div>
-    <div class="stat"><b>5</b><span class="mono">Festivals · 2026</span></div>
+    <div class="stat"><b>7</b><span class="mono">Festivals · 2026</span></div>
   </div>
   <div class="laurels" id="laurels">
     <img class="lau" src="img/laurel-jeju.webp" alt="Award Winner, Jeju International AI Film Festival, Korea 2026" width="640" height="414">
@@ -421,11 +422,12 @@ img{max-width:100%}
     <img class="lau" src="img/laurel-aphrodite-finalist.webp" alt="Finalist, Aphrodite Film Awards 2026, New York" width="640" height="414">
     <img class="lau" src="img/laurel-csfcca.webp" alt="Official Selection, CSFCCA International AI Film Festival 2026" width="640" height="415">
     <img class="lau" src="img/laurel-neuroscope.webp" alt="Official Selection, NeuroScope Films 2026" width="640" height="418">
+    <img class="lau" src="img/laurel-dreamina-hm.webp" alt="Honorable Mention, Dreamina AI Spooktacular Film Contest (The Mirror Door)" width="990" height="450">
   </div>
 </div>
 
 <div class="ticker" role="marquee" aria-label="Recognition">
-  <div class="ticker-track"><div class="ticker-run"><span>Award Winner · Jeju AI International Film Festival · Korea</span><i>✦</i><span>Honorable Mention · Tokyo Film &amp; Screenplay Awards</span><i>✦</i><span>Official Selection · AIFILM3 · Arizona, USA</span><i>✦</i><span>Finalist · Aphrodite Film Awards · New York</span><i>✦</i><span>Official Selection · CSFCCA International AI Film Festival · Taipei</span><i>✦</i><span>Official Selection · NeuroScope Films · USA</span><i>✦</i><span>100M+ combined views · Predator Origins</span><i>✦</i><span>KHARMA · WGA Registered IP</span><i>✦</i><span>Shaike Certified Creator</span><i>✦</i><span>Official Creative Partner · Seedance · Runway · Hailuo · CapCut</span><i>✦</i></div><div class="ticker-run" aria-hidden="true"><span>Award Winner · Jeju AI International Film Festival · Korea</span><i>✦</i><span>Honorable Mention · Tokyo Film &amp; Screenplay Awards</span><i>✦</i><span>Official Selection · AIFILM3 · Arizona, USA</span><i>✦</i><span>Finalist · Aphrodite Film Awards · New York</span><i>✦</i><span>Official Selection · CSFCCA International AI Film Festival · Taipei</span><i>✦</i><span>Official Selection · NeuroScope Films · USA</span><i>✦</i><span>100M+ combined views · Predator Origins</span><i>✦</i><span>KHARMA · WGA Registered IP</span><i>✦</i><span>Shaike Certified Creator</span><i>✦</i><span>Official Creative Partner · Seedance · Runway · Hailuo · CapCut</span><i>✦</i></div></div>
+  <div class="ticker-track"><div class="ticker-run"><span>Award Winner · Jeju AI International Film Festival · Korea</span><i>✦</i><span>Honorable Mention · Tokyo Film &amp; Screenplay Awards</span><i>✦</i><span>Official Selection · AIFILM3 · Arizona, USA</span><i>✦</i><span>Finalist · Aphrodite Film Awards · New York</span><i>✦</i><span>Official Selection · CSFCCA International AI Film Festival · Taipei</span><i>✦</i><span>Official Selection · NeuroScope Films · USA</span><i>✦</i><span>Honorable Mention · Dreamina Spooktacular Film Contest · The Mirror Door</span><i>✦</i><span>100M+ combined views · Predator Origins</span><i>✦</i><span>KHARMA · WGA Registered IP</span><i>✦</i><span>Shaike Certified Creator</span><i>✦</i><span>Official Creative Partner · Seedance · Runway · Hailuo · CapCut</span><i>✦</i></div><div class="ticker-run" aria-hidden="true"><span>Award Winner · Jeju AI International Film Festival · Korea</span><i>✦</i><span>Honorable Mention · Tokyo Film &amp; Screenplay Awards</span><i>✦</i><span>Official Selection · AIFILM3 · Arizona, USA</span><i>✦</i><span>Finalist · Aphrodite Film Awards · New York</span><i>✦</i><span>Official Selection · CSFCCA International AI Film Festival · Taipei</span><i>✦</i><span>Official Selection · NeuroScope Films · USA</span><i>✦</i><span>Honorable Mention · Dreamina Spooktacular Film Contest · The Mirror Door</span><i>✦</i><span>100M+ combined views · Predator Origins</span><i>✦</i><span>KHARMA · WGA Registered IP</span><i>✦</i><span>Shaike Certified Creator</span><i>✦</i><span>Official Creative Partner · Seedance · Runway · Hailuo · CapCut</span><i>✦</i></div></div>
 </div>
 
 <section id="work"><div class="inner">
@@ -475,7 +477,7 @@ img{max-width:100%}
       </div>
       <div class="desc">
         <p>Quiet rooms, held looks, and dread that comes from what the frame withholds.</p>
-        <img class="hm-laurel" src="img/laurel-dreamina-hm.webp" alt="Honorable Mention, Dreamina AI Spooktacular Film Contest" width="900" height="360" loading="lazy">
+        <img class="hm-laurel" src="img/laurel-dreamina-hm.webp" alt="Honorable Mention, Dreamina AI Spooktacular Film Contest" width="990" height="450" loading="lazy">
         <p class="screened"><em>Honorable Mention · Dreamina Spooktacular Film Contest</em>One of only 13 films honored in Dreamina's worldwide horror contest (CapCut), for screenwriting and technical mastery of AI. Jury: Chris White, executive producer of The Backrooms (A24), Portals and V/H/S: Viral · Reza Sixo Safai, filmmaker and producer of A Girl Walks Home Alone at Night and Prisoners of the Ghostland · Jason Zada, director of The Forest.</p>
       </div>
     </div>
