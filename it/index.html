@@ -83,6 +83,11 @@ nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
 nav ul a{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 nav ul a:hover{color:var(--fg);text-decoration:none}
 @media (max-width:640px){nav ul li:not(.keep){display:none}}
+nav ul li.lang .ls{display:inline-flex;border:1px solid var(--line, rgba(255,255,255,.22));border-radius:999px;overflow:hidden;font-family:var(--mono);font-size:11px;letter-spacing:.12em}
+nav ul li.lang .ls a,nav ul li.lang .ls span{padding:4px 9px;line-height:1}
+nav ul li.lang .ls span{background:var(--fg);color:var(--bg);font-weight:600}
+nav ul li.lang .ls a{color:var(--muted)}nav ul li.lang .ls a:hover{color:var(--fg)}
+
 
 /* hero viewfinder */
 .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
@@ -393,7 +398,7 @@ img{max-width:100%}
     <li><a href="#press">Stampa</a></li>
     <li><a href="#about">Bio</a></li>
     <li class="keep"><a href="#contact">Contatti</a></li>
-    <li class="keep lang"><a href="../" hreflang="en" lang="en">EN</a></li>
+    <li class="keep lang"><div class="ls" role="group" aria-label="Lingua"><a href="../" hreflang="en" lang="en" title="English version">EN</a><span aria-current="true">IT</span></div></li>
   </ul>
 </div></nav>
 
