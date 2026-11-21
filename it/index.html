@@ -69,6 +69,8 @@
 @media (max-width:760px){.pw ul{grid-template-columns:repeat(2,1fr);gap:34px 20px}.pw img{max-width:140px;max-height:32px}.pw img.tall{max-height:46px}}
 .pw .wm{display:flex;align-items:center;gap:10px;opacity:.72;transition:opacity .25s}.pw li:hover .wm{opacity:1}.pw .wm img{opacity:1;max-height:34px}.pw .wm span{font-family:var(--body);font-weight:700;font-size:26px;letter-spacing:-.01em;color:#fff}
 .pw img.stack{max-height:64px}@media (max-width:760px){.pw img.stack{max-height:54px}}
+.pw ul{display:flex!important;flex-wrap:wrap;justify-content:center}.pw ul li{width:calc(25% - 36px)}@media (max-width:760px){.pw ul li{width:calc(50% - 20px)}}
+.pw img.wide{max-width:215px}
 </style>
 <style>
 /* Layout: camera viewfinder hero → stats + laurels → numbered reels (I–V) like a press kit. Single dark look by choice. */
@@ -387,6 +389,7 @@ input,select,textarea{background:rgba(11,13,16,.6)}
 .laurels{grid-template-columns:repeat(8,minmax(0,1fr))}
 @media (max-width:1000px){.laurels{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media (max-width:560px){.laurels{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.pw img.wide{max-width:215px}
 </style>
 <style>
 *,*::before,*::after{box-sizing:border-box}
@@ -398,6 +401,7 @@ img{max-width:100%}
 .yt-frame{position:absolute;inset:0;width:100%;height:100%;border:0}
 .form-ok{border:1px solid var(--accent);padding:16px;background:var(--panel)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.pw img.wide{max-width:215px}
 </style>
 </head>
 <body>
@@ -660,7 +664,7 @@ img{max-width:100%}
 
 <section id="partners" class="pw" aria-label="Partner ufficiali – Sponsor – Community"><div class="inner">
   <h3>Partner ufficiali <span>–</span> Sponsor <span>–</span> Community</h3>
-  <ul><li><img src="../img/logos/dreamina.png" alt="Dreamina AI" loading="lazy"></li><li><img class="tall" src="../img/logos/hailuo.png" alt="Hailuo AI" loading="lazy"></li><li><img class="tall" src="../img/logos/kling.png" alt="Kling AI" loading="lazy"></li><li><img class="tall" src="../img/logos/pixverse.png" alt="PixVerse" loading="lazy"></li><li><img src="../img/logos/elevenlabs.png" alt="ElevenLabs" loading="lazy"></li><li><img src="../img/logos/freepik.png" alt="Freepik" loading="lazy"></li><li><img src="../img/logos/invideo.png" alt="invideo" loading="lazy"></li><li><span class="wm"><img src="../img/logos/youart.png" alt=""><span>YouArt</span></span></li><li><img class="stack" src="../img/logos/openart.png" alt="OpenArt" loading="lazy"></li><li><img class="stack" src="../img/logos/shaike.png" alt="Shaike" loading="lazy"></li><li><img class="stack" src="../img/logos/fairground.png" alt="Fairground" loading="lazy"></li><li><img src="../img/logos/curious_refuge.png" alt="Curious Refuge" loading="lazy"></li></ul>
+  <ul><li><img src="../img/logos/dreamina.png" alt="Dreamina AI" loading="lazy"></li><li><img src="../img/logos/capcut.png" alt="CapCut" loading="lazy"></li><li><img class="tall" src="../img/logos/hailuo.png" alt="Hailuo AI" loading="lazy"></li><li><img class="stack" src="../img/logos/openart.png" alt="OpenArt" loading="lazy"></li><li><span class="wm"><img src="../img/logos/youart.png" alt=""><span>YouArt</span></span></li><li><img class="tall" src="../img/logos/kling.png" alt="Kling AI" loading="lazy"></li><li><img class="tall" src="../img/logos/pixverse.png" alt="PixVerse" loading="lazy"></li><li><img src="../img/logos/elevenlabs.png" alt="ElevenLabs" loading="lazy"></li><li><img src="../img/logos/freepik.png" alt="Freepik" loading="lazy"></li><li><img src="../img/logos/invideo.png" alt="invideo" loading="lazy"></li><li><img class="wide" src="../img/logos/epidemic.png" alt="Epidemic Sound" loading="lazy"></li><li><img class="stack" src="../img/logos/shaike.png" alt="Shaike" loading="lazy"></li><li><img class="stack" src="../img/logos/fairground.png" alt="Fairground" loading="lazy"></li><li><img src="../img/logos/curious_refuge.png" alt="Curious Refuge" loading="lazy"></li></ul>
 </div></section>
 
 <section id="press"><div class="inner">
