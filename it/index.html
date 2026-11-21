@@ -57,12 +57,17 @@
 .screened strong{color:var(--fg);font-weight:600}
 .imdb{display:inline-block;background:#F5C518;color:#000;font:900 15px/1 Arial,Helvetica,sans-serif;letter-spacing:-.03em;padding:4px 6px 3px;border-radius:4px;vertical-align:middle}.imdb-f .imdb{font-size:12px;padding:3px 5px 2px}.imdb-f{text-decoration:none}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-.pw{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:46px 0 52px}
-.pw h3{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:500;text-align:center;margin:0 0 28px}
-.pw ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:14px 44px}
-.pw li{font-family:var(--display);font-weight:700;font-size:clamp(22px,2.6vw,30px);letter-spacing:.06em;text-transform:uppercase;color:color-mix(in srgb,var(--fg) 55%,transparent);transition:color .25s}
-.pw li:hover{color:var(--accent)}
-@media (max-width:640px){.pw ul{gap:10px 26px}.pw li{font-size:20px}}
+
+.pw{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:72px 0 80px}
+.pw h3{font-family:var(--display);font-weight:800;font-size:clamp(30px,4.6vw,54px);line-height:1;letter-spacing:.02em;text-transform:uppercase;color:var(--fg);text-align:center;margin:0 0 48px}
+.pw h3 span{color:var(--accent)}
+.pw ul{list-style:none;margin:0 auto;padding:0;max-width:1000px;display:grid;grid-template-columns:repeat(4,1fr);gap:44px 36px;align-items:center;justify-items:center}
+.pw li{display:flex;align-items:center;justify-content:center;height:56px;width:100%}
+.pw img{max-height:38px;max-width:170px;width:auto;height:auto;opacity:.72;transition:opacity .25s}
+.pw img.tall{max-height:56px}
+.pw li:hover img{opacity:1}
+@media (max-width:760px){.pw ul{grid-template-columns:repeat(2,1fr);gap:34px 20px}.pw img{max-width:140px;max-height:32px}.pw img.tall{max-height:46px}}
+.pw .wm{display:flex;align-items:center;gap:10px;opacity:.72;transition:opacity .25s}.pw li:hover .wm{opacity:1}.pw .wm img{opacity:1;max-height:34px}.pw .wm span{font-family:var(--body);font-weight:700;font-size:26px;letter-spacing:-.01em;color:#fff}
 </style>
 <style>
 /* Layout: camera viewfinder hero → stats + laurels → numbered reels (I–V) like a press kit. Single dark look by choice. */
@@ -653,8 +658,8 @@ img{max-width:100%}
 </div></section>
 
 <section id="partners" class="pw" aria-label="Partner ufficiali – Sponsor – Community"><div class="inner">
-  <h3>Partner ufficiali – Sponsor – Community</h3>
-  <ul><li>Dreamina</li><li>CapCut</li><li>Hailuo</li><li>OpenArt</li><li>YouArt</li><li>Pollo AI</li><li>Shaike</li><li>Fairground TV</li><li>Curious Refuge</li><li>Midjourney</li><li>Kling AI</li><li>Higgsfield</li><li>PixVerse</li><li>Magnific</li></ul>
+  <h3>Partner ufficiali <span>–</span> Sponsor <span>–</span> Community</h3>
+  <ul><li><img src="../img/logos/dreamina.png" alt="Dreamina AI" loading="lazy"></li><li><img class="tall" src="../img/logos/hailuo.png" alt="Hailuo AI" loading="lazy"></li><li><img class="tall" src="../img/logos/kling.png" alt="Kling AI" loading="lazy"></li><li><img class="tall" src="../img/logos/pixverse.png" alt="PixVerse" loading="lazy"></li><li><img src="../img/logos/elevenlabs.png" alt="ElevenLabs" loading="lazy"></li><li><img src="../img/logos/freepik.png" alt="Freepik" loading="lazy"></li><li><img src="../img/logos/invideo.png" alt="invideo" loading="lazy"></li><li><span class="wm"><img src="../img/logos/youart.png" alt=""><span>YouArt</span></span></li><li><img src="../img/logos/curious_refuge.png" alt="Curious Refuge" loading="lazy"></li></ul>
 </div></section>
 
 <section id="press"><div class="inner">
